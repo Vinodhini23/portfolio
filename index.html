@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinodhini Ravikumar | Angular Lead</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --acc:#5B6AF0;
+  --acc-dark:#4554D6;
+  --acc-light:#7B89F5;
+  --acc-subtle:rgba(91,106,240,0.1);
+  --acc-line:rgba(91,106,240,0.22);
+  --deep:#080B18;
+  --surface:#0D1226;
+  --card:#111829;
+  --card2:#16203A;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(255,255,255,0.1);
+  --white:#F4F7FF;
+  --muted:#7A8BA8;
+  --dim:#374257;
+  --text:#B8C8E8;
+  --sidebar-w:260px;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--deep);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  display:grid;
+  grid-template-columns:var(--sidebar-w) 1fr;
+  min-height:100vh;
+}
+
+/* ═══════════════════════════
+   SIDEBAR
+═══════════════════════════ */
+.sidebar{
+  position:fixed;
+  top:0;left:0;bottom:0;
+  width:var(--sidebar-w);
+  background:var(--surface);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  overflow-y:auto;
+  z-index:100;
+}
+
+.sidebar-top{
+  padding:32px 24px 24px;
+  border-bottom:1px solid var(--border);
+}
+
+/* Angular shield mini logo */
+.sidebar-logo{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:20px;
+}
+.sidebar-logo svg{width:28px;height:28px;flex-shrink:0}
+.sidebar-logo-text{
+  font-size:13px;font-weight:600;color:var(--white);
+  letter-spacing:0.02em;
+}
+
+.avatar{
+  width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--acc),#8B5CF6);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:700;color:#fff;
+  margin-bottom:14px;
+  flex-shrink:0;
+}
+.sidebar-name{
+  font-size:16px;font-weight:700;color:var(--white);
+  margin-bottom:3px;line-height:1.2;
+}
+.sidebar-title{
+  font-size:12px;color:var(--acc-light);
+  font-weight:500;margin-bottom:12px;
+  line-height:1.4;
+}
+.sidebar-location{
+  font-size:11px;color:var(--muted);
+  display:flex;align-items:center;gap:5px;
+}
+
+/* Nav links */
+.sidebar-nav{
+  padding:20px 12px;
+  flex:1;
+}
+.nav-section-label{
+  font-size:10px;font-weight:600;letter-spacing:0.1em;
+  color:var(--dim);text-transform:uppercase;
+  padding:0 12px;margin-bottom:6px;margin-top:16px;
+}
+.nav-section-label:first-child{margin-top:0}
+.nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;border-radius:6px;
+  color:var(--muted);font-size:13px;font-weight:500;
+  text-decoration:none;cursor:pointer;
+  transition:all .18s;
+  border:1px solid transparent;
+  margin-bottom:2px;
+}
+.nav-item:hover{
+  color:var(--white);
+  background:var(--acc-subtle);
+  border-color:var(--acc-line);
+}
+.nav-item.active{
+  color:var(--white);
+  background:var(--acc-subtle);
+  border-color:var(--acc-line);
+}
+.nav-item .nav-icon{
+  width:16px;height:16px;opacity:.7;flex-shrink:0;
+}
+.nav-badge{
+  margin-left:auto;
+  font-size:10px;font-weight:600;
+  background:var(--acc);color:#fff;
+  padding:2px 7px;border-radius:10px;
+}
+
+/* Sidebar contact links */
+.sidebar-contact{
+  padding:16px 24px 24px;
+  border-top:1px solid var(--border);
+  display:flex;flex-direction:column;gap:8px;
+}
+.sidebar-contact a{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;color:var(--muted);text-decoration:none;
+  transition:color .18s;overflow:hidden;
+}
+.sidebar-contact a:hover{color:var(--acc-light)}
+.sidebar-contact a svg{flex-shrink:0;opacity:.5}
+.sidebar-contact a span{
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+
+/* Sidebar skill tags */
+.sidebar-skills{
+  padding:16px 24px;
+  border-top:1px solid var(--border);
+}
+.sidebar-skills-label{
+  font-size:10px;font-weight:600;letter-spacing:0.1em;
+  color:var(--dim);text-transform:uppercase;margin-bottom:10px;
+}
+.chip-wrap{display:flex;flex-wrap:wrap;gap:5px}
+.chip{
+  font-size:10px;font-weight:500;
+  padding:3px 8px;border-radius:4px;
+  background:var(--card2);border:1px solid var(--border2);
+  color:var(--text);transition:all .15s;cursor:default;
+}
+.chip:hover{border-color:var(--acc-line);color:var(--acc-light)}
+.chip.acc{
+  background:var(--acc-subtle);
+  border-color:var(--acc-line);
+  color:var(--acc-light);
+}
+
+/* ═══════════════════════════
+   MAIN
+═══════════════════════════ */
+.main{
+  margin-left:var(--sidebar-w);
+  min-height:100vh;
+}
+
+/* ═══════════════════════════
+   HERO
+═══════════════════════════ */
+.hero{
+  min-height:100vh;
+  padding:80px 72px 72px;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  background:var(--deep);
+}
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(91,106,240,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(91,106,240,0.04) 1px,transparent 1px);
+  background-size:56px 56px;
+}
+.hero-glow{
+  position:absolute;
+  width:600px;height:400px;
+  top:10%;right:-100px;
+  background:radial-gradient(ellipse,rgba(91,106,240,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-content{max-width:640px;position:relative;z-index:1}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:500;
+  color:var(--acc-light);
+  border:1px solid var(--acc-line);
+  background:var(--acc-subtle);
+  padding:6px 14px;border-radius:20px;
+  margin-bottom:28px;
+}
+.eyebrow-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--acc-light);
+  animation:blink 2.4s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+h1{
+  font-size:clamp(44px,5.5vw,68px);
+  font-weight:700;line-height:1.04;
+  color:var(--white);
+  letter-spacing:-0.025em;
+  margin-bottom:14px;
+}
+.hero-subtitle{
+  font-size:clamp(17px,2.2vw,22px);
+  font-weight:400;color:var(--muted);
+  margin-bottom:22px;line-height:1.45;
+}
+.hero-desc{
+  font-size:15px;color:var(--text);
+  max-width:520px;margin-bottom:40px;line-height:1.8;
+}
+
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+.btn-fill{
+  background:var(--acc);color:#fff;
+  font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;
+  padding:13px 28px;border-radius:6px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:background .18s,transform .15s;
+}
+.btn-fill:hover{background:var(--acc-dark);transform:translateY(-2px)}
+.btn-outline{
+  background:transparent;color:var(--white);
+  font-size:14px;font-weight:500;font-family:'DM Sans',sans-serif;
+  padding:12px 28px;border-radius:6px;
+  border:1px solid var(--border2);
+  text-decoration:none;cursor:pointer;
+  transition:border-color .18s,background .18s,transform .15s;
+}
+.btn-outline:hover{border-color:var(--acc-line);background:var(--acc-subtle);transform:translateY(-2px)}
+
+.hero-stats{display:flex;gap:0;flex-wrap:wrap}
+.hstat{
+  padding:20px 40px 20px 0;margin-right:40px;
+  border-right:1px solid var(--border);
+}
+.hstat:last-child{border-right:none;margin-right:0}
+.hstat-n{
+  font-size:36px;font-weight:700;color:var(--white);line-height:1;
+}
+.hstat-n span{color:var(--acc-light)}
+.hstat-l{font-size:11px;color:var(--muted);margin-top:4px;max-width:80px;line-height:1.4}
+
+/* ═══════════════════════════
+   SECTIONS SHARED
+═══════════════════════════ */
+.section{
+  padding:80px 72px;
+  border-top:1px solid var(--border);
+}
+.section.alt{background:var(--surface)}
+
+.sec-label{
+  font-size:11px;font-weight:600;letter-spacing:0.1em;
+  color:var(--acc-light);text-transform:uppercase;margin-bottom:8px;
+}
+.sec-title{
+  font-size:clamp(26px,3vw,36px);font-weight:700;
+  color:var(--white);letter-spacing:-0.015em;line-height:1.15;
+}
+.sec-sub{font-size:14px;color:var(--muted);margin-top:8px;max-width:440px}
+.sec-bar{width:40px;height:3px;background:var(--acc);border-radius:2px;margin-top:14px;margin-bottom:48px}
+
+/* ═══════════════════════════
+   SKILLS
+═══════════════════════════ */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:14px;
+  margin-bottom:52px;
+}
+.skill-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:6px;padding:22px;
+  transition:border-color .18s,transform .2s;
+  position:relative;overflow:hidden;
+}
+.skill-card::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:var(--acc);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .25s;
+}
+.skill-card:hover{border-color:var(--acc-line);transform:translateY(-3px)}
+.skill-card:hover::before{transform:scaleX(1)}
+.skill-icon{
+  font-size:22px;margin-bottom:12px;display:block;
+}
+.skill-name{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px}
+.skill-desc{font-size:11px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+.skill-chips{display:flex;flex-wrap:wrap;gap:4px}
+
+/* proficiency bars */
+.prof-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px 64px;
+  max-width:800px;
+}
+.prof-row{display:flex;flex-direction:column;gap:5px}
+.prof-top{display:flex;justify-content:space-between;align-items:baseline}
+.prof-name{font-size:13px;font-weight:500;color:var(--white)}
+.prof-pct{font-size:11px;color:var(--acc-light);font-weight:600}
+.prof-track{height:4px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden}
+.prof-fill{height:100%;background:var(--acc);border-radius:2px}
+
+/* ═══════════════════════════
+   EXPERIENCE (timeline)
+═══════════════════════════ */
+.timeline{position:relative;padding-left:32px}
+.timeline::before{
+  content:'';position:absolute;
+  left:0;top:12px;bottom:12px;
+  width:1px;background:var(--border);
+}
+.tl-item{
+  position:relative;margin-bottom:48px;
+}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{
+  position:absolute;left:-36px;top:6px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--acc);
+  box-shadow:0 0 0 3px var(--acc-subtle);
+}
+.tl-period{
+  font-size:11px;font-weight:600;color:var(--acc-light);
+  letter-spacing:0.04em;margin-bottom:2px;
+}
+.tl-role{
+  font-size:17px;font-weight:700;color:var(--white);margin-bottom:2px;line-height:1.2;
+}
+.tl-company{font-size:13px;color:var(--muted);margin-bottom:14px}
+.tl-points{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.tl-points li{
+  font-size:13px;color:var(--text);line-height:1.65;
+  padding-left:14px;position:relative;
+}
+.tl-points li::before{
+  content:'';position:absolute;left:0;top:9px;
+  width:5px;height:1px;background:var(--acc);
+}
+.tl-chips{display:flex;flex-wrap:wrap;gap:5px}
+
+/* ═══════════════════════════
+   PROJECTS
+═══════════════════════════ */
+.proj-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:18px;
+}
+.proj-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:6px;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:border-color .18s,transform .2s;
+}
+.proj-card:hover{border-color:var(--acc-line);transform:translateY(-4px)}
+.proj-accent{height:3px;background:var(--acc)}
+.proj-body{padding:26px;flex:1;display:flex;flex-direction:column}
+.proj-metric{
+  font-size:30px;font-weight:700;color:var(--white);line-height:1;margin-bottom:2px;
+}
+.proj-metric-lbl{font-size:11px;color:var(--muted);margin-bottom:14px}
+.proj-name{font-size:15px;font-weight:600;color:var(--white);margin-bottom:8px;line-height:1.3}
+.proj-desc{font-size:13px;color:var(--text);line-height:1.65;flex:1;margin-bottom:16px}
+.proj-chips{display:flex;flex-wrap:wrap;gap:4px}
+.proj-footer{
+  padding:12px 26px;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.proj-footer-lbl{font-size:11px;color:var(--muted)}
+.proj-arrow{
+  width:26px;height:26px;border-radius:50%;
+  background:var(--acc-subtle);border:1px solid var(--acc-line);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--acc-light);font-size:12px;cursor:pointer;
+  transition:all .15s;
+}
+.proj-arrow:hover{background:var(--acc);color:#fff;border-color:var(--acc)}
+
+/* ═══════════════════════════
+   EDUCATION
+═══════════════════════════ */
+.edu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:14px;
+}
+.edu-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:6px;padding:22px;
+  display:flex;gap:14px;align-items:flex-start;
+  transition:border-color .18s;
+}
+.edu-card:hover{border-color:var(--acc-line)}
+.edu-icon{
+  width:38px;height:38px;flex-shrink:0;
+  border-radius:6px;background:var(--acc-subtle);
+  border:1px solid var(--acc-line);
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;
+}
+.edu-year{font-size:10px;font-weight:600;color:var(--acc-light);margin-bottom:3px;letter-spacing:0.04em}
+.edu-deg{font-size:13px;font-weight:600;color:var(--white);line-height:1.3;margin-bottom:3px}
+.edu-inst{font-size:11px;color:var(--muted)}
+
+/* ═══════════════════════════
+   CTA / CONTACT
+═══════════════════════════ */
+.cta-block{
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:52px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-block::before{
+  content:'';position:absolute;
+  width:400px;height:300px;
+  bottom:-80px;left:50%;transform:translateX(-50%);
+  background:radial-gradient(ellipse,rgba(91,106,240,0.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cta-block h2{
+  font-size:clamp(26px,3.5vw,40px);font-weight:700;
+  color:var(--white);letter-spacing:-0.02em;
+  margin-bottom:12px;line-height:1.15;position:relative;z-index:1;
+}
+.cta-block p{
+  font-size:15px;color:var(--muted);
+  max-width:400px;margin:0 auto 32px;position:relative;z-index:1;
+}
+.cta-actions{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  position:relative;z-index:1;margin-bottom:36px;
+}
+.contact-pills{
+  display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+  padding-top:28px;border-top:1px solid var(--border);
+  position:relative;z-index:1;
+}
+.contact-pill{
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;color:var(--muted);text-decoration:none;
+  transition:color .15s;
+}
+.contact-pill:hover{color:var(--acc-light)}
+.contact-pill svg{opacity:.5;flex-shrink:0}
+
+/* ═══════════════════════════
+   FOOTER
+═══════════════════════════ */
+.footer{
+  padding:20px 72px;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--surface);
+}
+.footer p{font-size:11px;color:var(--dim)}
+.footer-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:600;letter-spacing:0.08em;
+  color:var(--acc-light);
+  background:var(--acc-subtle);border:1px solid var(--acc-line);
+  padding:3px 10px;border-radius:10px;
+}
+
+/* ═══════════════════════════
+   RESPONSIVE
+═══════════════════════════ */
+@media(max-width:860px){
+  :root{--sidebar-w:0px}
+  body{grid-template-columns:1fr}
+  .sidebar{
+    position:fixed;top:0;left:-260px;width:260px;
+    transition:left .25s;z-index:200;
+    box-shadow:4px 0 24px rgba(0,0,0,.5);
+  }
+  .sidebar.open{left:0}
+  .main{margin-left:0}
+  .mobile-bar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 24px;height:56px;
+    background:var(--surface);border-bottom:1px solid var(--border);
+    position:sticky;top:0;z-index:99;
+  }
+  .mobile-bar-brand{font-size:15px;font-weight:600;color:var(--white)}
+  .ham{
+    width:32px;height:32px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:5px;cursor:pointer;
+    background:none;border:none;padding:4px;
+  }
+  .ham span{display:block;width:18px;height:2px;background:var(--white);border-radius:1px;transition:all .2s}
+  .hero,.section{padding:48px 24px}
+  .prof-grid{grid-template-columns:1fr}
+  .footer{padding:16px 24px;flex-direction:column;gap:8px;text-align:center}
+}
+@media(min-width:861px){
+  .mobile-bar{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     SIDEBAR
+══════════════════════════════════════ -->
+<aside class="sidebar" id="sidebar">
+
+  <!-- Brand -->
+  <div class="sidebar-top">
+    <div class="sidebar-logo">
+      <svg viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M125 30L31.9 63.8l14.2 123.1L125 230l78.9-43.1 14.2-123.1z" fill="#5B6AF0"/>
+        <path d="M125 30v22.2V230l78.9-43.1 14.2-123.1L125 30z" fill="#4554D6"/>
+        <path d="M125 52.1L66.8 182.6h20.7l11.7-29.2h52.6l11.7 29.2H184L125 52.1zm17 83.3h-34l17-40.9 17 40.9z" fill="#fff"/>
+      </svg>
+      <span class="sidebar-logo-text">Angular Portfolio</span>
+    </div>
+
+    <div class="avatar">VR</div>
+    <div class="sidebar-name">Vinodhini Ravikumar</div>
+    <div class="sidebar-title">Angular Lead · Senior Frontend Dev</div>
+    <div class="sidebar-location">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Chennai, India
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Navigate</div>
+    <a class="nav-item active" href="#hero" onclick="setActive(this)">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Home
+    </a>
+    <a class="nav-item" href="#skills" onclick="setActive(this)">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Skills
+      <span class="nav-badge">10yr</span>
+    </a>
+    <a class="nav-item" href="#experience" onclick="setActive(this)">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+      Experience
+    </a>
+    <a class="nav-item" href="#projects" onclick="setActive(this)">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      Projects
+      <span class="nav-badge">4</span>
+    </a>
+    <a class="nav-item" href="#education" onclick="setActive(this)">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      Education
+    </a>
+    <a class="nav-item" href="#contact" onclick="setActive(this)">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Contact
+    </a>
+
+    <div class="nav-section-label">Connect</div>
+    <a class="nav-item" href="https://linkedin.com/in/vinodhini-r" target="_blank">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zm2-3a2 2 0 100-4 2 2 0 000 4z"/></svg>
+      LinkedIn
+    </a>
+    <a class="nav-item" href="mailto:vinoravi23@gmail.com">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Email me
+    </a>
+  </nav>
+
+  <!-- Core skills quick view -->
+  <div class="sidebar-skills">
+    <div class="sidebar-skills-label">Core stack</div>
+    <div class="chip-wrap">
+      <span class="chip acc">Angular</span>
+      <span class="chip acc">TypeScript</span>
+      <span class="chip">RxJS</span>
+      <span class="chip">NgRx</span>
+      <span class="chip">Jenkins</span>
+      <span class="chip">SCSS</span>
+      <span class="chip">Claude AI</span>
+    </div>
+  </div>
+
+  <!-- Contact info -->
+  <div class="sidebar-contact">
+    <a href="tel:+916380899561">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span>+91 63808 99561</span>
+    </a>
+    <a href="mailto:vinoravi23@gmail.com">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span>vinoravi23@gmail.com</span>
+    </a>
+  </div>
+</aside>
+
+<!-- ══════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════ -->
+<div class="main">
+
+  <!-- Mobile top bar -->
+  <div class="mobile-bar">
+    <span class="mobile-bar-brand">Vinodhini R.</span>
+    <button class="ham" id="hamBtn" aria-label="Open menu" onclick="toggleSidebar()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Angular Lead · 10 Years Experience · Chennai
+      </div>
+      <h1>Vinodhini<br>Ravikumar</h1>
+      <div class="hero-subtitle">Senior Frontend Developer &amp; Scrum Master</div>
+      <p class="hero-desc">
+        Building enterprise Angular applications that scale — from v4 to v13 migrations, reusable component libraries, and AI-powered dashboards. Currently leading frontend engineering at Accenture using Claude AI and LLM APIs.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-fill" href="mailto:vinoravi23@gmail.com">Get in touch</a>
+        <a class="btn-outline" href="https://linkedin.com/in/vinodhini-r" target="_blank">LinkedIn profile</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-n">10<span>yr</span></div>
+          <div class="hstat-l">frontend engineering</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-n"><span>40</span>%</div>
+          <div class="hstat-l">tech debt reduced</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-n">30<span>+</span></div>
+          <div class="hstat-l">reusable components</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-n">85<span>%</span></div>
+          <div class="hstat-l">test coverage</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section alt" id="skills">
+    <div class="sec-label">Technical expertise</div>
+    <div class="sec-title">Skills &amp; technologies</div>
+    <div class="sec-bar"></div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <span class="skill-icon">⚡</span>
+        <div class="skill-name">Angular Framework</div>
+        <div class="skill-desc">v4 through v13, full application lifecycle</div>
+        <div class="skill-chips">
+          <span class="chip acc">Angular v13</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">JS ES6+</span>
+          <span class="chip">HTML5</span>
+          <span class="chip">SCSS</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🔄</span>
+        <div class="skill-name">State Management</div>
+        <div class="skill-desc">Reactive &amp; predictable application state</div>
+        <div class="skill-chips">
+          <span class="chip acc">NgRx</span>
+          <span class="chip">RxJS</span>
+          <span class="chip">Observables</span>
+          <span class="chip">Effects</span>
+          <span class="chip">Selectors</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🏗️</span>
+        <div class="skill-name">Architecture</div>
+        <div class="skill-desc">Scalable modular design patterns</div>
+        <div class="skill-chips">
+          <span class="chip acc">HLD / LLD</span>
+          <span class="chip">Modular Design</span>
+          <span class="chip">REST APIs</span>
+          <span class="chip">OpenAPI</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🚀</span>
+        <div class="skill-name">DevOps &amp; Quality</div>
+        <div class="skill-desc">CI/CD pipelines, 85%+ test coverage</div>
+        <div class="skill-chips">
+          <span class="chip acc">Jenkins</span>
+          <span class="chip">SonarQube</span>
+          <span class="chip">Git</span>
+          <span class="chip">Jasmine</span>
+          <span class="chip">Karma</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🤖</span>
+        <div class="skill-name">AI Integration</div>
+        <div class="skill-desc">LLM-powered development workflows</div>
+        <div class="skill-chips">
+          <span class="chip acc">Claude AI</span>
+          <span class="chip">Cursor AI</span>
+          <span class="chip">LLM APIs</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">👥</span>
+        <div class="skill-name">Leadership</div>
+        <div class="skill-desc">Agile team leadership &amp; mentoring</div>
+        <div class="skill-chips">
+          <span class="chip acc">Scrum Master</span>
+          <span class="chip">Code Review</span>
+          <span class="chip">Pair Programming</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proficiency bars -->
+    <div style="margin-top:8px">
+      <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:20px">Proficiency levels</div>
+      <div class="prof-grid">
+        <div class="prof-row">
+          <div class="prof-top"><span class="prof-name">Angular (v4–v13)</span><span class="prof-pct">97%</span></div>
+          <div class="prof-track"><div class="prof-fill" style="width:97%"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-top"><span class="prof-name">Jenkins / SonarQube</span><span class="prof-pct">88%</span></div>
+          <div class="prof-track"><div class="prof-fill" style="width:88%"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-top"><span class="prof-name">TypeScript / JavaScript</span><span class="prof-pct">95%</span></div>
+          <div class="prof-track"><div class="prof-fill" style="width:95%"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-top"><span class="prof-name">Jasmine / Karma</span><span class="prof-pct">90%</span></div>
+          <div class="prof-track"><div class="prof-fill" style="width:90%"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-top"><span class="prof-name">RxJS &amp; NgRx</span><span class="prof-pct">93%</span></div>
+          <div class="prof-track"><div class="prof-fill" style="width:93%"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-top"><span class="prof-name">Claude AI / LLM APIs</span><span class="prof-pct">85%</span></div>
+          <div class="prof-track"><div class="prof-fill" style="width:85%"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-top"><span class="prof-name">HTML5 / SCSS</span><span class="prof-pct">94%</span></div>
+          <div class="prof-track"><div class="prof-fill" style="width:94%"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-top"><span class="prof-name">REST APIs / OpenAPI</span><span class="prof-pct">92%</span></div>
+          <div class="prof-track"><div class="prof-fill" style="width:92%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="sec-label">Work history</div>
+    <div class="sec-title">Professional experience</div>
+    <div class="sec-bar"></div>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Jun 2021 – Present</div>
+        <div class="tl-role">Angular Team Lead &amp; Scrum Master</div>
+        <div class="tl-company">Accenture · Chennai</div>
+        <ul class="tl-points">
+          <li>Led Angular v8 to v13 migration for 100K+ LOC codebase — 40% technical debt reduction, 25%+ performance gain, zero-downtime delivery.</li>
+          <li>Built 30+ reusable UI components adopted by 3 teams, cutting development time by 30%. Zero critical defects through Jenkins CI/CD and SonarQube quality gates.</li>
+          <li>Developing AI-powered agentic dashboard with LLM API integration (Claude AI), real-time data visualizations, and time series analysis. Accelerated dev velocity 35% with Cursor AI.</li>
+          <li>Scrum Master: sprint planning, standups, retrospectives. Mentored 6+ engineers and defined HLD/LLD standards, reducing rework by 20%.</li>
+        </ul>
+        <div class="tl-chips">
+          <span class="chip acc">Angular 13</span>
+          <span class="chip">NgRx</span>
+          <span class="chip">RxJS</span>
+          <span class="chip">Claude AI</span>
+          <span class="chip">Jenkins</span>
+          <span class="chip">SonarQube</span>
+          <span class="chip">Scrum</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Mar 2020 – Jun 2021</div>
+        <div class="tl-role">Associate Consultant · Angular Developer</div>
+        <div class="tl-company">Virtusa · Chennai</div>
+        <ul class="tl-points">
+          <li>Developed scalable Angular modules with full HLD/LLD documentation across the Agile lifecycle.</li>
+          <li>Optimized DOM rendering via RxJS operators and NgRx; integrated REST APIs with OpenAPI/Swagger specifications.</li>
+        </ul>
+        <div class="tl-chips">
+          <span class="chip acc">Angular</span>
+          <span class="chip">RxJS</span>
+          <span class="chip">NgRx</span>
+          <span class="chip">REST APIs</span>
+          <span class="chip">OpenAPI</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2016 – 2020</div>
+        <div class="tl-role">Frontend Developer</div>
+        <div class="tl-company">Crown Solutions (TCS) · CanGo Networks · Hirecraft</div>
+        <ul class="tl-points">
+          <li>Built enterprise Angular SPAs and dashboards across fintech and HR domains.</li>
+          <li>Achieved 40% rendering performance gain via OnPush change detection and memoized NgRx selectors; maintained 80%+ Jasmine/Karma test coverage.</li>
+        </ul>
+        <div class="tl-chips">
+          <span class="chip acc">Angular SPA</span>
+          <span class="chip">OnPush</span>
+          <span class="chip">Jasmine</span>
+          <span class="chip">Karma</span>
+          <span class="chip">Fintech</span>
+          <span class="chip">HR Tech</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section alt" id="projects">
+    <div class="sec-label">Selected work</div>
+    <div class="sec-title">Key projects</div>
+    <div class="sec-bar"></div>
+
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-accent"></div>
+        <div class="proj-body">
+          <div class="proj-metric">35%</div>
+          <div class="proj-metric-lbl">faster development velocity</div>
+          <div class="proj-name">Agentic AI Dashboard</div>
+          <div class="proj-desc">AI-powered agentic dashboard integrating Claude AI and LLM APIs for autonomous decision flows, AI-generated scenarios, and real-time data visualizations. Built at Accenture.</div>
+          <div class="proj-chips">
+            <span class="chip acc">Angular 13</span>
+            <span class="chip">Claude AI</span>
+            <span class="chip">LLM APIs</span>
+            <span class="chip">RxJS</span>
+            <span class="chip">Chart.js</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-footer-lbl">Accenture · 2023–Present</span>
+          <div class="proj-arrow">↗</div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-accent"></div>
+        <div class="proj-body">
+          <div class="proj-metric">40%</div>
+          <div class="proj-metric-lbl">dashboard load time reduction</div>
+          <div class="proj-name">Time Series Analytics Platform</div>
+          <div class="proj-desc">Interactive time series analysis module with live streaming data, trend forecasting UI, and drill-down charts. Performance via OnPush change detection and memoized NgRx selectors.</div>
+          <div class="proj-chips">
+            <span class="chip acc">Angular 13</span>
+            <span class="chip">NgRx</span>
+            <span class="chip">RxJS</span>
+            <span class="chip">Chart.js</span>
+            <span class="chip">REST APIs</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-footer-lbl">Accenture · 2022</span>
+          <div class="proj-arrow">↗</div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-accent"></div>
+        <div class="proj-body">
+          <div class="proj-metric">30+</div>
+          <div class="proj-metric-lbl">components · 3 teams · 85%+ coverage</div>
+          <div class="proj-name">Enterprise Component Library</div>
+          <div class="proj-desc">Comprehensive reusable UI component library adopted across three product teams — 30% faster development, automated CI/CD versioning via Jenkins and SonarQube.</div>
+          <div class="proj-chips">
+            <span class="chip acc">Angular 13</span>
+            <span class="chip">NgRx</span>
+            <span class="chip">Jenkins</span>
+            <span class="chip">SonarQube</span>
+            <span class="chip">SCSS</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-footer-lbl">Accenture · 2022</span>
+          <div class="proj-arrow">↗</div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-accent"></div>
+        <div class="proj-body">
+          <div class="proj-metric">v8 → v13</div>
+          <div class="proj-metric-lbl">zero downtime · 100K+ LOC · grade C → A</div>
+          <div class="proj-name">Angular Migration</div>
+          <div class="proj-desc">Six-month zero-downtime migration of a large enterprise Angular codebase — 25% bundle reduction, SonarQube grade C to A, 40% technical debt reduction.</div>
+          <div class="proj-chips">
+            <span class="chip acc">Angular 8/13</span>
+            <span class="chip">RxJS</span>
+            <span class="chip">NgRx</span>
+            <span class="chip">SonarQube</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-footer-lbl">Accenture · 2021–2022</span>
+          <div class="proj-arrow">↗</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+    <div class="sec-label">Background</div>
+    <div class="sec-title">Education &amp; certifications</div>
+    <div class="sec-bar"></div>
+
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-year">2024</div>
+          <div class="edu-deg">MBA — Systems Management</div>
+          <div class="edu-inst">University of Madras</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">💻</div>
+        <div>
+          <div class="edu-year">2016</div>
+          <div class="edu-deg">B.E. — Computer Science Engineering</div>
+          <div class="edu-inst">AVIT, Anna University</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">☁️</div>
+        <div>
+          <div class="edu-year">In progress</div>
+          <div class="edu-deg">AWS Certified Developer — Associate</div>
+          <div class="edu-inst">Amazon Web Services</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">⭐</div>
+        <div>
+          <div class="edu-year">Award</div>
+          <div class="edu-deg">Growth Catalyst Award</div>
+          <div class="edu-inst">Accenture — Technical Excellence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section alt" id="contact">
+    <div class="sec-label">Get in touch</div>
+    <div class="sec-title">Let's work together</div>
+    <div class="sec-bar"></div>
+    <div class="cta-block">
+      <h2>Open to new Angular<br>opportunities</h2>
+      <p>Looking for Angular lead, senior frontend, and technical architecture roles. Based in Chennai — open to remote.</p>
+      <div class="cta-actions">
+        <a class="btn-fill" href="mailto:vinoravi23@gmail.com">Send an email</a>
+        <a class="btn-outline" href="https://linkedin.com/in/vinodhini-r" target="_blank">LinkedIn</a>
+      </div>
+      <div class="contact-pills">
+        <a class="contact-pill" href="mailto:vinoravi23@gmail.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          vinoravi23@gmail.com
+        </a>
+        <a class="contact-pill" href="tel:+916380899561">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +91 63808 99561
+        </a>
+        <a class="contact-pill" href="https://linkedin.com/in/vinodhini-r" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zm2-3a2 2 0 100-4 2 2 0 000 4z"/></svg>
+          linkedin.com/in/vinodhini-r
+        </a>
+        <span class="contact-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Chennai, India
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>© 2026 Vinodhini Ravikumar. All rights reserved.</p>
+    <div class="footer-badge">
+      <svg width="12" height="12" viewBox="0 0 250 250" fill="none"><path d="M125 30L31.9 63.8l14.2 123.1L125 230l78.9-43.1 14.2-123.1z" fill="#5B6AF0"/><path d="M125 52.1L66.8 182.6h20.7l11.7-29.2h52.6l11.7 29.2H184L125 52.1zm17 83.3h-34l17-40.9 17 40.9z" fill="#fff"/></svg>
+      Angular Lead Portfolio
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+// Active nav on scroll
+const sections = document.querySelectorAll('section[id], .hero[id]');
+const navItems = document.querySelectorAll('.nav-item[href^="#"]');
+
+function setActive(el){
+  navItems.forEach(n=>n.classList.remove('active'));
+  el.classList.add('active');
+}
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navItems.forEach(n=>n.classList.remove('active'));
+      const match = document.querySelector(`.nav-item[href="#${e.target.id}"]`);
+      if(match) match.classList.add('active');
+    }
+  });
+},{threshold:0.35});
+
+sections.forEach(s=>observer.observe(s));
+
+// Mobile sidebar toggle
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+}
+// Close on nav click (mobile)
+navItems.forEach(n=>n.addEventListener('click',()=>{
+  document.getElementById('sidebar').classList.remove('open');
+}));
+// Close on outside click
+document.addEventListener('click',e=>{
+  const sidebar=document.getElementById('sidebar');
+  const ham=document.getElementById('hamBtn');
+  if(sidebar.classList.contains('open') && !sidebar.contains(e.target) && e.target!==ham && !ham.contains(e.target)){
+    sidebar.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>
