@@ -34,9 +34,8 @@ body{
   font-family:'DM Sans',sans-serif;
   font-weight:400;
   line-height:1.6;
-  display:grid;
-  grid-template-columns:var(--sidebar-w) 1fr;
   min-height:100vh;
+  overflow-x:hidden;
 }
 
 /* ═══════════════════════════
@@ -177,6 +176,8 @@ body{
 .main{
   margin-left:var(--sidebar-w);
   min-height:100vh;
+  width:calc(100% - var(--sidebar-w));
+  overflow-x:hidden;
 }
 
 /* ═══════════════════════════
@@ -188,6 +189,8 @@ body{
   display:flex;align-items:center;
   position:relative;overflow:hidden;
   background:var(--deep);
+  width:100%;
+  max-width:100%;
 }
 .hero-grid{
   position:absolute;inset:0;pointer-events:none;
@@ -504,14 +507,13 @@ h1{
 ═══════════════════════════ */
 @media(max-width:860px){
   :root{--sidebar-w:0px}
-  body{grid-template-columns:1fr}
   .sidebar{
     position:fixed;top:0;left:-260px;width:260px;
     transition:left .25s;z-index:200;
     box-shadow:4px 0 24px rgba(0,0,0,.5);
   }
   .sidebar.open{left:0}
-  .main{margin-left:0}
+  .main{margin-left:0;width:100%}
   .mobile-bar{
     display:flex;align-items:center;justify-content:space-between;
     padding:0 24px;height:56px;
